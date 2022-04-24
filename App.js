@@ -1,10 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { getAgents } from './src/api/services/valorantServices';
 
 export default function App() {
+
+  getAgents()
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Text style={{fontWeight:'bold'}}>ACE</Text>
       <StatusBar style="auto" />
     </View>
   );
