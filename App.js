@@ -1,17 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import {useState} from 'react'
+import { StyleSheet, Text, View,StatusBar } from 'react-native';
 import LoadingScreen from './components/screens/LoadingScreen';
 import { getAgents } from './src/api/services/valorantServices';
 import * as NavigationBar from 'expo-navigation-bar';
+
 export default function App() {
 
+  const [isLoading, setIsLoading] = useState(true);
   NavigationBar.setBackgroundColorAsync('black')
-  getAgents()
 
   return (
     <View style={styles.container}>
-      <LoadingScreen/>
-      <StatusBar style="inverted" />
+      {
+        isLoading?<LoadingScreen/>:<Text>App.js</Text>
+      }
+      <StatusBar backgroundColor={'black'} barStyle={'light-content'}/>
     </View>
   );
 }
@@ -19,7 +22,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor:'black',
     alignItems: 'center',
     justifyContent: 'center',
   },

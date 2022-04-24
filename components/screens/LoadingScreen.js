@@ -15,7 +15,6 @@ export default LoadingScreen
 
 const LoadingStyles = StyleSheet.create({
     container:{
-        backgroundColor:'black',
         flex:1,
         width:'100%',
         alignItems:'center',
