@@ -7,7 +7,7 @@ import {useFonts,Oswald_700Bold} from '@expo-google-fonts/oswald'
 
 export default function App() {
 
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   let [fontsLoaded] = useFonts({
     Oswald_700Bold,
   })
@@ -16,7 +16,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       {
-        isLoading && !fontsLoaded?<LoadingScreen/>:<AgentScreen/>
+        isLoading || !fontsLoaded?<LoadingScreen/>:<AgentScreen/>
       }
       <StatusBar backgroundColor={'black'} barStyle={'light-content'}/>
     </View>
