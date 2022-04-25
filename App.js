@@ -1,18 +1,22 @@
 import {useState} from 'react'
 import { StyleSheet, Text, View,StatusBar } from 'react-native';
 import LoadingScreen from './components/screens/LoadingScreen';
-import { getAgents } from './src/api/services/valorantServices';
 import * as NavigationBar from 'expo-navigation-bar';
+import AgentScreen from './components/screens/AgentScreen';
+import {useFonts,Oswald_700Bold} from '@expo-google-fonts/oswald'
 
 export default function App() {
 
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
+  let [fontsLoaded] = useFonts({
+    Oswald_700Bold,
+  })
   NavigationBar.setBackgroundColorAsync('black')
 
   return (
     <View style={styles.container}>
       {
-        isLoading?<LoadingScreen/>:<Text>App.js</Text>
+        isLoading && !fontsLoaded?<LoadingScreen/>:<AgentScreen/>
       }
       <StatusBar backgroundColor={'black'} barStyle={'light-content'}/>
     </View>
