@@ -1,10 +1,10 @@
 async function getAgents(){
-    const data = await fetch('https://valorant-api.com/v1/agents').then(responce=> responce.json()).then(data=>data.data)
+    const data = await fetch('https://valorant-api.com/v1/agents?isPlayableCharacter=true').then(responce=> responce.json()).then(data=>data.data)
     return data
 }
 
 async function getAgentsByUuid(uuid){
-    const data = await fetch(`https://valorant-api.com/v1/agents/{uuid}`).then(responce=> responce.json()).then(data=>data.data)
+    const data = await fetch(`https://valorant-api.com/v1/agents/${uuid}`).then(responce=> responce.json()).then(data=>data.data)
     return data
 }
 
