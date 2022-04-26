@@ -7,7 +7,7 @@ import {useFonts,Oswald_700Bold} from '@expo-google-fonts/oswald'
 
 export default function App() {
 
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   let [fontsLoaded] = useFonts({
     Oswald_700Bold,
   })
