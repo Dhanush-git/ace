@@ -4,6 +4,7 @@ import LoadingScreen from './components/screens/LoadingScreen';
 import * as NavigationBar from 'expo-navigation-bar';
 import AgentScreen from './components/screens/AgentScreen';
 import {useFonts,Oswald_700Bold} from '@expo-google-fonts/oswald'
+import WeaponScreen from './components/screens/WeaponScreen';
 
 export default function App() {
 
@@ -16,7 +17,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       {
-        isLoading || !fontsLoaded?<LoadingScreen/>:<AgentScreen/>
+        isLoading || !fontsLoaded?<LoadingScreen/>:<WeaponScreen/>
       }
       <StatusBar backgroundColor={'black'} barStyle={'light-content'}/>
     </View>
