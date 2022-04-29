@@ -3,7 +3,7 @@ import React, {useEffect,useState} from 'react'
 import { getAgentsByUuid } from '../../src/api/services/valorantServices'
 import LoadingScreen from './LoadingScreen'
 
-export default function AgentScreen() {
+export default function AgentInfoScreen() {
 
   const [agent, setagent] = useState({})
   const [primaryColor, setPrimaryColor] = useState('red');
@@ -11,7 +11,7 @@ export default function AgentScreen() {
   const [isLoading, setIsLoading] = useState(true)
   
   useEffect(async() => {
-  const data = await getAgentsByUuid('bb2a4828-46eb-8cd1-e765-15848195d751')
+  const data = await getAgentsByUuid('dade69b4-4f5a-8528-247b-219e5a1facd6')
   setagent(data)
   if(data.backgroundGradientColors){
     setPrimaryColor('#'+data.backgroundGradientColors[0])
@@ -22,14 +22,6 @@ export default function AgentScreen() {
   }
   setIsLoading(false)
   },[])
-
-
-
-  function setColors(data) {
-    console.log("updating color");
-    primaryColor = '#'+data.backgroundGradientColors[0]
-    secondaryColor = '#'+data.backgroundGradientColors[2]
-  }
 
   return (
     <View style={{width:'100%',flex:1}}>
