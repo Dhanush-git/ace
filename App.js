@@ -2,9 +2,10 @@ import {useState} from 'react'
 import { StyleSheet, Text, View,StatusBar } from 'react-native';
 import LoadingScreen from './components/screens/LoadingScreen';
 import * as NavigationBar from 'expo-navigation-bar';
-import AgentScreen from './components/screens/AgentScreen';
 import {useFonts,Oswald_700Bold} from '@expo-google-fonts/oswald'
-import WeaponScreen from './components/screens/WeaponScreen';
+import WeaponInfoScreen from './components/screens/WeaponInfoScreen';
+import AgentsScreen from './components/screens/AgentsScreen';
+
 
 export default function App() {
 
@@ -17,7 +18,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       {
-        isLoading || !fontsLoaded?<LoadingScreen/>:<WeaponScreen/>
+        isLoading || !fontsLoaded?<LoadingScreen/>:<AgentsScreen/>
       }
       <StatusBar backgroundColor={'black'} barStyle={'light-content'}/>
     </View>
