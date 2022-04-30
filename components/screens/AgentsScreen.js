@@ -20,7 +20,7 @@ export default function AgentsScreen() {
         isLoading?<LoadingScreen/>:
         <View style={{flex:1}} >
             <Text style={{color:'white',fontSize:30,fontFamily:'Oswald_700Bold'}} >AGENTS</Text>
-            <ScrollView style={{height:'100%',marginTop:20}}>
+            <ScrollView style={{height:'100%',marginTop:20}} showsVerticalScrollIndicator={false}>
                 {
                     agents.map(e => 
                         <TouchableOpacity key={e.displayName} style={{height:80,width:'100%',backgroundColor:e.backgroundGradientColors?'#'+e.backgroundGradientColors[0]:'#6CD4FF',borderRadius:10,marginBottom:10}} >
