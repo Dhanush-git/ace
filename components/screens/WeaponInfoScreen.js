@@ -27,7 +27,7 @@ export default function WeaponInfoScreen() {
                 <Text style={{color:'black',fontFamily:'Oswald_700Bold',letterSpacing:2,fontSize:15}} >{weapon.category.split('::')[1].toUpperCase()}</Text>
                 <Text style={{color:'black',fontFamily:'Oswald_700Bold',letterSpacing:2,fontSize:15}} >{currentSkin}</Text>
                 <Text style={{color:'black',fontWeight:'bold',letterSpacing:2,fontSize:15,marginTop:10}} >// SKINS</Text>
-                <ScrollView horizontal style={{marginTop:20}} >
+                <ScrollView horizontal style={{marginTop:20}} showsHorizontalScrollIndicator={false}>
                     {
                         weapon.skins.map((e)=>
                         <TouchableOpacity key={e.displayName} onPress={()=>{setCurrentSkinUri(e.chromas[0].fullRender),setCurrentSkin(e.displayName)}} style={{marginRight:10,padding:5,backgroundColor:'#e9ecef',borderRadius:10}} >
