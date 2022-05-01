@@ -3,7 +3,7 @@ import React, {useState,useEffect} from 'react'
 import LoadingScreen from './LoadingScreen';
 import { getWeaponsByUuid } from '../../src/api/services/valorantServices';
 
-export default function WeaponInfoScreen() {
+export default function WeaponInfoScreen({route}) {
   
   const [weapon, setWeapon] = useState();
   const [isLoading, setIsLoading] = useState(true);
@@ -11,13 +11,13 @@ export default function WeaponInfoScreen() {
   const [currentSkinUri, setCurrentSkinUri] = useState();
 
   useEffect(async() => {
-  const data = await getWeaponsByUuid('44d4e95c-4157-0037-81b2-17841bf2e8e3')
+  const data = await getWeaponsByUuid(route.params.uuid)
   setWeapon(data)
   setCurrentSkinUri(data.displayIcon)
   setIsLoading(false)
   }, []);
   return (
-    <View style={{flex:1,width:'100%'}} >
+    <View style={{flex:1,width:'100%',backgroundColor:'black'}} >
       {
           isLoading?<LoadingScreen/>:
           <View>

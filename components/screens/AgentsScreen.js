@@ -3,7 +3,7 @@ import React,{useState,useEffect} from 'react'
 import LoadingScreen from './LoadingScreen';
 import { getAgents } from '../../src/api/services/valorantServices';
 
-export default function AgentsScreen() {
+export default function AgentsScreen({navigation}) {
   
     const [isLoading, setIsLoading] = useState(true);
     const [agents, setAgents] = useState();
@@ -23,7 +23,7 @@ export default function AgentsScreen() {
             <ScrollView style={{height:'100%',marginTop:20}} showsVerticalScrollIndicator={false}>
                 {
                     agents.map(e => 
-                        <TouchableOpacity key={e.displayName} style={{height:80,width:'100%',backgroundColor:e.backgroundGradientColors?'#'+e.backgroundGradientColors[0]:'#6CD4FF',borderRadius:10,marginBottom:10}} >
+                        <TouchableOpacity onPress={()=>navigation.navigate('AgentsDetails',{uuid:e.uuid})} key={e.displayName} style={{height:80,width:'100%',backgroundColor:e.backgroundGradientColors?'#'+e.backgroundGradientColors[0]:'#6CD4FF',borderRadius:10,marginBottom:10}} >
                             <Image source={{uri:e.killfeedPortrait}} style={{height:'100%',position:'absolute',width:'100%',opacity:0.2}}/>
                             <View style={{height:80,width:'100%',flexDirection:'row',alignItems:'center'}} >
                             <Image source={{uri:e.displayIcon}} style={{height:80,width:80,borderRadius:10}} />

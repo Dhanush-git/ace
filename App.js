@@ -7,6 +7,8 @@ import AgentsScreen from './components/screens/AgentsScreen';
 import WeaponsScreen from './components/screens/WeaponsScreen';
 import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import AgentsStack from './components/screens/AgentsStack';
+import WeaponsStack from './components/screens/WeaponsStack';
 
 export default function App() {
 
@@ -28,8 +30,8 @@ export default function App() {
             tabBarIconStyle:{display:'none',height:0,width:0},
             tabBarLabelStyle:{position:'absolute',fontSize:15}}}
             >
-            <Tab.Screen name="Agents" component={AgentsScreen} />
-            <Tab.Screen name="Weapons" component={WeaponsScreen} />
+            <Tab.Screen name="Agents" component={AgentsStack} />
+            <Tab.Screen name="Weapons" component={WeaponsStack} />
           </Tab.Navigator>
           </NavigationContainer>
         </View>

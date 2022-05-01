@@ -3,7 +3,7 @@ import React,{useState,useEffect} from 'react'
 import { getWeapons } from '../../src/api/services/valorantServices'
 import LoadingScreen from './LoadingScreen'
 
-export default function WeaponsScreen() {
+export default function WeaponsScreen({navigation}) {
 
   const [isLoading, setIsLoading] = useState(true)
   const [weapons, setWeapons] = useState()
@@ -22,7 +22,7 @@ export default function WeaponsScreen() {
         <ScrollView style={{marginTop:20}} showsVerticalScrollIndicator={false}>
           {
             weapons.map((e)=>
-              <TouchableOpacity key={e.displayName} style={{alignItems:'center',flexDirection:'row',height:80,width:'100%',borderRadius:10,backgroundColor:'white',marginBottom:10}}>
+              <TouchableOpacity onPress={()=>navigation.navigate('WeaponsDetails',{uuid:e.uuid})} key={e.displayName} style={{alignItems:'center',flexDirection:'row',height:80,width:'100%',borderRadius:10,backgroundColor:'white',marginBottom:10}}>
                 <Image source={{uri:e.displayIcon }} style={{height:80,width:80}} resizeMode='contain'/>
                 <View style={{marginLeft:20}}>
                 <Text style={{color:'black',fontSize:20,fontFamily:'Oswald_700Bold',letterSpacing:2}}>{e.displayName.toUpperCase()}</Text>
