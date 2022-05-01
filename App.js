@@ -3,10 +3,10 @@ import { StyleSheet, Text, View,StatusBar } from 'react-native';
 import LoadingScreen from './components/screens/LoadingScreen';
 import * as NavigationBar from 'expo-navigation-bar';
 import {useFonts,Oswald_700Bold} from '@expo-google-fonts/oswald'
-import WeaponInfoScreen from './components/screens/WeaponInfoScreen';
 import AgentsScreen from './components/screens/AgentsScreen';
 import WeaponsScreen from './components/screens/WeaponsScreen';
-
+import { NavigationContainer } from '@react-navigation/native'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 export default function App() {
 
@@ -16,10 +16,23 @@ export default function App() {
   })
   NavigationBar.setBackgroundColorAsync('black')
 
+  const Tab = createBottomTabNavigator()
+
   return (
     <View style={styles.container}>
       {
-        isLoading || !fontsLoaded?<LoadingScreen/>:<WeaponsScreen/>
+        isLoading || !fontsLoaded?<LoadingScreen/>:
+        <View style={{flex:1,width:'100%'}}>
+          <NavigationContainer>
+            <Tab.Navigator screenOptions={{headerShown:false,tabBarStyle:{height:50,paddingBottom:10,backgroundColor:'black',borderTopWidth:0},
+            tabBarIconStyle:{display:'none',height:0,width:0},
+            tabBarLabelStyle:{position:'absolute',fontSize:15}}}
+            >
+            <Tab.Screen name="Agents" component={AgentsScreen} />
+            <Tab.Screen name="Weapons" component={WeaponsScreen} />
+          </Tab.Navigator>
+          </NavigationContainer>
+        </View>
       }
       <StatusBar backgroundColor={'black'} barStyle={'light-content'}/>
     </View>
