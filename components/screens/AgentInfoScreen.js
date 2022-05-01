@@ -11,7 +11,7 @@ export default function AgentInfoScreen({route}) {
   const [isLoading, setIsLoading] = useState(true)
   
   useEffect(async() => {
-  console.log(route.uuid)
+  const data = await getAgentsByUuid(route.params.uuid)
   setagent(data)
   if(data.backgroundGradientColors){
     setPrimaryColor('#'+data.backgroundGradientColors[0])
