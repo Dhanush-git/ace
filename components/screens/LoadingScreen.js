@@ -17,6 +17,7 @@ const LoadingStyles = StyleSheet.create({
     container:{
         flex:1,
         width:'100%',
+        backgroundColor:'black',
         alignItems:'center',
         justifyContent:'center'
     }
