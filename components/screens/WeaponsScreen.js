@@ -15,7 +15,7 @@ export default function WeaponsScreen() {
   }, [])
   
   return (
-    <View style={{flex:1,width:'100%',paddingHorizontal:20}}>
+    <View style={{flex:1,width:'100%',paddingHorizontal:20,backgroundColor:'black'}}>
       {isLoading?<LoadingScreen/>:
       <View style={{flex:1,width:'100%'}}>
         <Text style={{color:'white',fontFamily:'Oswald_700Bold',fontSize:30}}>WEAPONS</Text>
